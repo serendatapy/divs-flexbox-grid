@@ -97,30 +97,79 @@ textarea {
 
 
 html {
-  background-color: #fff;
+  background-color: #222;
   height: 100%;
+  width: 100%;
 }
 
 body {
   font-family: 'Source Sans Pro', sans-serif;
   padding: 2em;
-  font-size: 1.25em;
   height: 100%;
+  color: #fff;  /*Can help to find errors in layout*/
+  font-weight: 700;
 }
 
 .wrapper {
   /*add display:flex and set justify-content to space-between*/
-  font-weight: 700;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  background: darkgrey;
+  border-radius: 10px;
+  padding: 15px 10px;
+  /*flexwrap seems more generic than flex-flow - preffered?
+  flex-wrap: wrap;*/
+  
+  /*align-content: center;*/
+  /*removing the with allows correct centering of the wrapper it seems,
+  rather it takes up all the space
+  width: 90%;*/
 }
 
 .div-1, .div-2, .div-3 {
   /*give the divs a width of 30%, add display:flex, set justify-content and align-items to center*/
+  align-items: center;
   color: #fff;
+  font-size: 1.25em;
   line-height: 1.5em;
-  font-size: 1.6em;
   background-color: #f16059;
-  height: 300px;
+  /*height: 300px;
+    height: auto?*/
+  display: flex;
+  justify-content: center;
+  border-radius: 10px;
+  padding: 15px 10px;
+  margin: 0.25em;
+  /*I removed the 30% from here, as I wanted the boxes to display fluidly.
+  Later when the screen becomes over 1200px, I added the 30% to create the columns
+  instead of displaying boxes in rows. 
+  It seems that without width, the divs take up the parent's container width
+  automatically*/
+  
 }
+
+.div-1 {
+    /*give the divs a width of 30%, add display:flex, set justify-content and align-items to center*/
+    
+    background: #d76f72;   
+    
+  }
+
+  .div-2 {
+    /*give the divs a width of 30%, add display:flex, set justify-content and align-items to center*/
+    
+    background: #cacec6;
+   
+    
+  }
+
+  .div-3 {
+    /*give the divs a width of 30%, add display:flex, set justify-content and align-items to center*/
+    background: #64b6ac;
+    
+    
+  }
 
 
 
@@ -204,6 +253,18 @@ body {
    These examples override the primary ('mobile first') styles.
    Modify as content requires.
    ========================================================================== */
+/*---------- Desktops ----------*/
+@media (min-width: 1200px) {
+    .div-1, .div-2, .div-3 {
+        width: 30%;
+    }
+    .div-1, .div-2 {
+        /*border-right: 1px solid #555;*/
+        padding-right: 30px;
+
+    }
+     
+  }   
 
 @media print,
        (-webkit-min-device-pixel-ratio: 1.25),
